@@ -1,57 +1,50 @@
 # Welcome
+The front-end framework for developing projects on the web in Windows Metro Style, created and supported by Sergey Pimenov (aka olton) with the massive support and involvement of community.   
 
-Metro UI CSS a set of styles to create a site with an interface similar to Windows 8 Metro UI. This set of styles was developed as a self-contained solution.
+Metro UI CSS developed with the advice of Microsoft to build the user interface and include: general styles, grid, layouts, typography, 20+ components, 300+ built-in icons. Metro UI CSS build with {LESS}. Metro UI CSS is open source and has MIT licensing model.
+ 
+## Current Version
 
-### Version model
-x.x.x.x
+### 3.0.6
 
-1) Major number
+#### Install with bower
+bower install metro
+#### Install with nuget
+Package-Install Metro.UI.CSS
 
-2) Version of CSS
 
-3) Version of JS
+### Whats new in 3.0
+- compatible with AngularJS
+- full code refactoring
+- declarative approach to the definition of components
+- framework itself monitors components, pressure via ajax
+- create cool page without knowledge of javascript
 
-4) Fix
+ Documentation and Demo: [metroui.org.ua](http://metroui.org.ua/).   
+ Documentation and Demo for V2: [metroui.org.ua/v2](http://metroui.org.ua/v2).   
+ Community Forum: [forum.metroui.org.ua](http://forum.metroui.org.ua).  
 
-# Current Version
+### Credits
+- Metro UI CSS is a Microsoft BizSpark Startup.
+- Styles created using the [less](http://lesscss.org) preprocessor by  [Alexis Sellier](https://github.com/cloudhead)
+- preCode by Leon Sorokin [preCode](https://github.com/leeoniya/preCode.js)
+- easing functions by George McGinley Smith [easing](http://gsgd.co.uk/sandbox/jquery/easing/)
+- mousewheel.js by Brandon Aaron [mousewheel](http://brandonaaron.net)
+- jQuery Core and jQuery Widget Factory by jQuery [jquery](https://jquery.com/)
+- All who have I picked up something good
 
-## 0.15.8.12
+### Browser Compatibility
+IE9+, Chrome, Firefox, Opera, Safari
 
-See details of definition on [metroui.org.ua](http://metroui.org.ua)
+# License
+Metro UI CSS has [MIT License](http://metroui.org.ua/license.html)
 
-# Team
+## Old version
+Metro UI CSS 2.x you can find in a branch [metrouicss-2x](https://github.com/olton/Metro-UI-CSS/tree/metrouicss-2x)     
+Metro UI CSS 0.95 you can find in a branch [metrouicss-0.95](https://github.com/olton/Metro-UI-CSS/tree/metrouicss-0.95) 
 
-## Sergey Pimenov
-Kiev, Ukraine.
-Project owner, team leader.
-CSS/LESS, HTML, Javascript.
-
-## Sergey Volkov
-Voljskiy, Russia.
-Team member.
-Javascript.
-
-## Valerio Battaglia (vabatta)
-Ticino, Switzerland.
-Team member.
-CSS/LESS, HTML, Javascript.
-
-# Pull requests
-
-Please create pull requests for develop branch. Requests in master branch can be ignored.
-
-# Credits
-
-Metro UI CSS now is a Microsoft BizSpark Startup
-
-Normalize.css is a project by Nicolas Gallagher and Jonathan Neal.
-
-Sites and Projects with Metro UI CSS:
-
-* [forecast.org.ua](http://forecast.org.ua).
-* [pimenov.org.ua](http://pimenov.org.ua)
-
-## Special thanks
-
-* [@oazabir](https://github.com/oazabir)
-* [@sagarsane](https://github.com/sagarsane)
+### Thanks
+Thanks to all. Special thanks to all those who financially supported the project.    
+    
+        
+        

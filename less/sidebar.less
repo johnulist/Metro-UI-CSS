@@ -1,136 +1,264 @@
-/*
- * Metro UI CSS
- * Copyright 2012 Sergey Pimenov
- * Licensed under the MIT License
- *
- * Sidebar.less
- */
+@import (once) "variables";
+@import (once) "utils";
+@import (once) "transform";
+@import (once) "typography";
+@import (once) "menu";
 
-.page-sidebar {
-    display: block;
-    width: 213px;
-    float: left;
-    min-height: 100% !important;
-    height: auto;
-    background-color: #EBEBEB;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    margin-left: 7px;
+.sidebar-container {
+	background-color: #71b1d1;
+	color: @white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
 
-    a {
-        #font > .navigation;
-        #state > .navigation;
-        display: block;
-        width: 100%;
-        padding: 5px 20px 5px 10px;
-        white-space: nowrap;
-        font-size: 14px;
-        cursor: pointer;
+.sidebar {
+	background-color: #71b1d1;
+	color: @white;
+	position: relative;
+	width: 100%;
+	.flush-list;
 
-        &:hover {
-            .bg-color-blue;
-            .fg-color-white;
+	li {
+		display: block;
+		background-color: inherit;
+		color: inherit;
+		position: relative;
+		height: 52px;
+
+		a {
+			display: block;
+			background-color: inherit;
+			color: inherit;
+			padding: .625rem 1rem .625rem 3.75rem;
+			position: relative;
+			width: 100%;
+			height: 100%;
+			line-height: .875rem;
+
+			.icon {
+				width: 28px;
+				height: 28px;
+				font-size: 28px;
+				line-height: 28px;
+				vertical-align: middle;
+				text-align: center;
+				position: absolute;
+				left: .625rem;
+				top: .625rem;
+			}
+
+			.title, .counter {
+				display: block;
+				margin: 0;
+				white-space: nowrap;
+			}
+
+			.title {
+				font-size: .6875rem;
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+
+			.counter {
+				font-size: .7rem;
+				font-weight: normal;
+			}
+		}
+	}
+
+	li {
+
+		&:hover {
+			background-color: #7cc1de;
+		}
+
+		&.active {
+			background-color: @white;
+			color: #323232;
+		}
+	}
+}
+
+.sidebar {
+	.transition(.2s, ease);
+
+	&.compact {
+		width: 52px;
+		.transition(.2s, ease);
+
+		a {
+			padding-right: 0;
+			padding-left: 0;
+			width: 52px;
+		}
+
+		.title {
+			display: none ;
+		}
+
+		.counter {
+			position: absolute;
+			top: 0;
+			right: 4px;
+		}
+	}
+}
+
+.sidebar2 {
+	.v-menu;
+	.v-menu > .subdown;
+	border: 1px @grayLighter solid;
+	width: 100%;
+
+	li {
+		border-top: 1px @grayLighter solid;
+		cursor: default;
+
+		&.stick {
+			position: relative;
+			&:before {
+				content: "";
+				position: absolute;
+				width: 7px;
+				height: 44px;
+				left: -7px;
+				text-indent: -9999px;
+				border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+				background-color: inherit;
+			}
+		}
+
+		&.disabled {
+            background-color: inherit;
+			&:hover {border-top: 1px @grayLighter solid;}
+		}
+
+		a {
+			background-color: @white;
+			color: #323232;
+			white-space: normal;
+
+			.icon {
+				color: inherit ;
+			}
+		}
+	}
+
+	li.title {
+		padding: 20px 20px 10px 20px;
+		font-size: 24px;
+		border: 0;
+
+		&:hover {
+			background-color: inherit;
+		}
+	}
+
+	li:not(.title) + li.title {
+		border-top: 1px @grayLighter solid;
+
+	}
+
+	li.active {
+		background-color: #71b1d1;
+		border: none;
+
+		a {
+			background-color: #71b1d1;
+			color: @white;
+
+			.icon {
+				color: inherit;
+			}
+		}
+	}
+
+	li {
+		&:hover {
+			a {background-color: #7cc1de;}
+		}
+        &.disabled {
+            &:hover a {
+                background-color: inherit;
+            }
         }
-    }
+	}
 
-    li {
-        display: list-item;
-        line-height: 20px;
-        position: relative;
-    }
+	li li:not(:hover) {
+		color: @dark ;
 
-    & > ul > li > a {
-        font-size: 1.1em;
-    }
+		a {
+			background-color: @white;
+		}
+	}
+}
 
-    & > ul > li a.lead, & > ul > li.lead a, & > ul > li.lead {
-        font-weight: bold;
-    }
+.sidebar2 {
+	&.dark {
+		li {
+			border-top: 1px #5c5c5c solid;
 
-    & > ul > li.sticker {
+			&.title {
+				background-color: #3D3D3D;
+				color: @white;
+			}
+		}
 
-        &:before {
-            content: ".";
-            position: absolute;
-            width: 7px;
-            height: 28px;
-            left: -7px;
-            text-indent: -9999px;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            background-color: #ebebeb;
-        }
+		li a {
+			background-color: #3D3D3D;
+			color: @white;
 
-        &.sticker-color-blue {&:before{background-color: @blue;}}
-        &.sticker-color-blueLight {&:before{background-color: @blueLight;}}
-        &.sticker-color-blueDark {&:before{background-color: @blueDark;}}
-        &.sticker-color-green {&:before{background-color: @green !important;}}
-        &.sticker-color-greenLight {&:before{background-color: @greenLight !important;}}
-        &.sticker-color-greenDark {&:before{background-color: @greenDark !important;}}
-        &.sticker-color-red {&:before{background-color: @red !important;}}
-        &.sticker-color-yellow {&:before{background-color: @yellow !important;}}
-        &.sticker-color-orange {&:before{background-color: @orange !important;}}
-        &.sticker-color-orangeDark {&:before{background-color: @orangeDark !important;}}
-        &.sticker-color-pink {&:before{background-color: @pink !important;}}
-        &.sticker-color-pinkDark {&:before{background-color: @pinkDark !important;}}
-        &.sticker-color-purple {&:before{background-color: @purple !important;}}
-        &.sticker-color-darken {&:before{background-color: @darken !important;}}
-        &.sticker-color-white {&:before{background-color: @white !important;}}
-        &.sticker-color-grayDark {&:before{background-color: @grayDark !important;}}
-    }
+			&:hover {
+				background-color: #262626;
+				color: @white;
+			}
+		}
 
-    .divider {
-        height: 1px;
-        margin: 9px 1px;
-        overflow: hidden;
-        background-color: #e5e5e5;
-    }
+		li:not(.title) + li.title, li.disabled {
+			border-top-color: #5c5c5c;
 
-    & ul {
-        .unstyled;
-        background-color: #EBEBEB;
-    }
+		}
 
-    ul.sub-menu {
-        padding-top: 5px;
-        padding-bottom: 5px;
+		li.disabled {
+			&:hover {
+				border-top-color: #5c5c5c ;
+                a {
+                    background-color: #3D3D3D;
+                }
+			}
 
-        a {
-            padding: 5px 20px 5px 25px;
-        }
+			a {
+				color: @grayLight;
+			}
+		}
 
-        &.light {
-            background-color: #f9f9f9 !important;
-        }
-    }
+		li.active {
+			a {
+				background-color: @red;
+			}
+		}
 
-    .sidebar-dropdown-menu {
-        display: none;
+		.dropdown-toggle {
+			&:before {
+				border-color: @white;
+			}
+		}
 
-        &.open {
-            display: block;
-        }
-    }
+		.d-menu {
+			li a {
+				background-color: #3D3D3D;
+				color: @white;
 
-    & > ul > li.dropdown {
-        position: relative;
-
-        &:after {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 6px;
-            left: 100%;
-            margin-left: -20px;
-            width: 16px;
-            height: 16px;
-            background: no-repeat;
-            background-position: 0 -1586px;
-            z-index: 200;
-        }
-        &.active:after {
-            background-position: 0 -676px;
-        }
-    }
+				&:hover {
+					background-color: #262626;
+					color: @white;
+				}
+			}
+		}
+	}
 }
